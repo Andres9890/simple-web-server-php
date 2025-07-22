@@ -401,12 +401,13 @@ function addServer(editindex) {
 
         toggleCheckbox("showIndex", config.servers[editindex].showIndex != null ? config.servers[editindex].showIndex : true);
         toggleCheckbox("spa", config.servers[editindex].spa != null ? config.servers[editindex].spa : false);
-        document.querySelector("#rewriteTo").value = config.servers[editindex].rewriteTo || "/index.html";
+        document.querySelector("#rewriteTo").value = config.servers[editindex].rewriteTo || "/index.php";
         toggleCheckbox("directoryListing", config.servers[editindex].directoryListing != null ? config.servers[editindex].directoryListing : true);
         toggleCheckbox("excludeDotHtml", config.servers[editindex].excludeDotHtml != null ? config.servers[editindex].excludeDotHtml : false);
 
         toggleCheckbox("ipv6", config.servers[editindex].ipv6 != null ? config.servers[editindex].ipv6 : false);
         document.querySelector("#cacheControl").value = config.servers[editindex].cacheControl || "";
+        document.querySelector("#phpPath").value = config.servers[editindex].phpPath || "php";
         toggleCheckbox("hiddenDotFiles", config.servers[editindex].hiddenDotFiles != null ? config.servers[editindex].hiddenDotFiles : false);
         toggleCheckbox("cors", config.servers[editindex].cors != null ? config.servers[editindex].cors : false);
         toggleCheckbox("upload", config.servers[editindex].upload != null ? config.servers[editindex].upload : false);
@@ -453,12 +454,13 @@ function addServer(editindex) {
 
         toggleCheckbox("showIndex", true);
         toggleCheckbox("spa", false);
-        document.querySelector("#rewriteTo").value = "/index.html";
+        document.querySelector("#rewriteTo").value = "/index.php";
         toggleCheckbox("directoryListing", true);
         toggleCheckbox("excludeDotHtml", false);
 
         toggleCheckbox("ipv6", false);
         document.querySelector("#cacheControl").value = "";
+        document.querySelector("#phpPath").value = "php";
         toggleCheckbox("hiddenDotFiles", false);
         toggleCheckbox("cors", false);
         toggleCheckbox("upload", false);
@@ -566,6 +568,7 @@ function submitAddServer() {
 
         "ipv6": isChecked("ipv6"),
         "cacheControl": document.querySelector("#cacheControl").value,
+        "phpPath": document.querySelector("#phpPath").value,
         "hiddenDotFiles": isChecked("hiddenDotFiles"),
         "cors": isChecked("cors"),
         "upload": isChecked("upload"),

@@ -1,34 +1,10 @@
-# Simple Web Server
+# Simple Web Server PHP
 
-[Download](https://simplewebserver.org/download/) &bull; [Documentation](https://simplewebserver.org/docs/options.html) &bull; [Build from source](https://simplewebserver.org/docs/build.html) &bull; [Help translate](https://github.com/terreng/simple-web-server/issues/200)
+This project is a fork of the original [Simple Web Server](https://github.com/terreng/simple-web-server) and provides a version focused on PHP. The interface and usage remain similar but with additional functionality for executing PHP scripts directly.
 
-Create local web servers in just a few clicks with an easy to use interface. Built with Electron.
+## Features
+- Extensive PHP support with automatic execution of `.php` files
+- Easily customizable server settings
+- Multiple servers can run simultaneously
+- Background operation
 
-Features:
-- Easy to customize
-- Run multiple web servers at the same time
-- Supports Single Page Applications
-- Can run in the background
-
-Languages:
-- English
-- 简体中文
-- 繁體中文
-- Español
-- Français
-- Português
-- Русский
-- Deutsch
-- 日本語
-- 한국어
-- Italiano
-- Українська
-- Azərbaycanca
-- Nederlands
-- Svenska
-
-Help us translate to more languages on [Weblate](https://hosted.weblate.org/projects/simple-web-server/simple-web-server/)!
-
-![screenshots](https://user-images.githubusercontent.com/11605395/163694811-46e3b79c-a187-4c78-b622-6250a6d5d9d0.jpeg)
-
-Simple Web Server is a continuation of [Web Server for Chrome](https://github.com/kzahel/web-server-chrome).

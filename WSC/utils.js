@@ -47,7 +47,7 @@ module.exports = {
         return date.toLocaleString();
     },
     htaccessFileRequested: function(file, index) {
-        let pathArr = ['index.html', 'index.htm', 'index', 'index.xhtm', 'index.xhtml'];
+        let pathArr = ['index.php', 'index.htm', 'index', 'index.xhtm', 'index.xhtml'];
         if (index) pathArr.push('');
         return pathArr.includes(file) ? 'index' : file;
     },
