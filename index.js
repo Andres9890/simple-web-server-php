@@ -527,7 +527,7 @@ function createWindow() {
 
     // mainWindow.webContents.setUserAgent(mainWindow.webContents.getUserAgent() + " language:" + getLanguage());
 
-    mainWindow.loadFile('index.html');
+    mainWindow.loadFile('index.php');
 
     //mainWindow.webContents.openDevTools();
 

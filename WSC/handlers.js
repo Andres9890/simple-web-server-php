@@ -1,6 +1,7 @@
 global.cachedFiles = [];
 global.tempData = {};
 global.ConnetionS = {};//This shouldnt be done this way
+const { spawn } = require('child_process');
 
 class DirectoryEntryHandler {
     headersWritten;
@@ -40,12 +41,12 @@ class DirectoryEntryHandler {
         }
     }
     error(msg, httpCode) {
-        if (this.opts.spa && httpCode === 404 && this.request.path !== (this.opts.rewriteTo || "/index.html")) {
-            let newPath = (this.opts.rewriteTo || "/index.html");
+        if (this.opts.spa && httpCode === 404 && this.request.path !== (this.opts.rewriteTo || "/index.php")) {
+            let newPath = (this.opts.rewriteTo || "/index.php");
             this.request.path = newPath;
             this.request.origpath = newPath;
             this.request.uri = newPath;
-            this.fs.getByPath((this.opts.rewriteTo || "/index.html"), this.onEntry.bind(this));
+            this.fs.getByPath((this.opts.rewriteTo || "/index.php"), this.onEntry.bind(this));
             return;
         }
         const defaultMsg = '<h1>' + httpCode + ' - ' + WSC.HTTPRESPONSES[httpCode] + '</h1>\n\n<p>' + msg + '</p>';
@@ -395,7 +396,7 @@ class DirectoryEntryHandler {
             }
             if (origdata[i].type === 'POSTkey' && !filefound) {
                 if (this.request.origpath.split('/').pop() === origdata[i].original_request_path || 
-                    (origdata[i].original_request_path.split('/').pop() === 'index.html' && 
+                    (origdata[i].original_request_path.split('/').pop() === 'index.php' &&
                      this.request.origpath.endsWith('/') &&
                      this.opts.showIndex) ||
                     (['html', 'htm', 'xhtm', 'xhtml'].includes(origdata[i].original_request_path.split('.').pop()) && 
@@ -507,7 +508,7 @@ class DirectoryEntryHandler {
     }
     onEntryMain() {
         if (this.opts.excludeDotHtml && this.request.path !== '' && ! this.request.origpath.endsWith("/")) {
-            let file = this.fs.getByPath(this.request.origpath+'.html');
+            let file = this.fs.getByPath(this.request.origpath+'.php');
             if (!file.error && file.isFile) {
                 this.setHeader('content-type','text/html; charset=utf-8');
                 this.renderFileContents(file);
@@ -598,7 +599,7 @@ class DirectoryEntryHandler {
                         this.setHeader('content-type','application/xhtml+xml; charset=utf-8');
                         this.renderFileContents(results[i]);
                         return;
-                    } else if (['index.htm', 'index.html'].includes(results[i].name.toLowerCase())) {
+                    } else if (['index.htm', 'index.php'].includes(results[i].name.toLowerCase())) {
                         this.setHeader('content-type','text/html; charset=utf-8');
                         this.renderFileContents(results[i]);
                         return;
@@ -721,7 +722,7 @@ class DirectoryEntryHandler {
                     (['html', 'htm'].includes(origdata[i].original_request_path.split('.').pop()) && 
                      origdata[i].original_request_path.split('/').pop().split('.')[0] === this.request.origpath.split('/').pop() &&
                      this.opts.excludeDotHtml) ||
-                    (origdata[i].original_request_path.split('/').pop() === 'index.html' && 
+                    (origdata[i].original_request_path.split('/').pop() === 'index.php' &&
                      this.request.origpath.endsWith('/') &&
                      this.opts.showIndex)) {
                     data = origdata[i];
@@ -783,13 +784,13 @@ class DirectoryEntryHandler {
     }
     htaccessInit() {
         if (this.opts.excludeDotHtml) {
-            let file = this.fs.getByPath(this.request.origpath+'.html');
+            let file = this.fs.getByPath(this.request.origpath+'.php');
             if (!file.error) {
                 if (this.request.origpath.endsWith("/")) {
                     this.htaccessMain('');
                     return;
                 }
-                const filerequested = WSC.utils.htaccessFileRequested((this.request.path+'.html').split('/').pop(), this.opts.showIndex);
+                const filerequested = WSC.utils.htaccessFileRequested((this.request.path+'.php').split('/').pop(), this.opts.showIndex);
                 this.htaccessMain(filerequested);
                 return;
             }
@@ -819,6 +820,9 @@ class DirectoryEntryHandler {
         if (!entry.path || entry.error) {
             this.error('', 404);
             return;
+        }
+        if (entry.fullPath.toLowerCase().endsWith('.php')) {
+            return this.executePHP(entry.fullPath);
         }
         //Check to see if this entry file has compressed files we can serve
         if (entry.hidden && !this.opts.hiddenDotFiles) {
@@ -918,6 +922,18 @@ class DirectoryEntryHandler {
                 })
             }
         }
+    }
+
+    executePHP(file) {
+        const phpBin = this.opts.phpPath || 'php';
+        const proc = spawn(phpBin, [file], {env: process.env});
+        this.setHeader('content-type','text/html; charset=utf-8');
+        proc.stdout.on('data', chunk => {
+            if (!this.headersWritten) this.writeHeaders(200);
+            this.res.write(chunk);
+        });
+        proc.stderr.on('data', chunk => console.error('php error:', chunk.toString()));
+        proc.on('close', () => this.finish());
     }
     entriesSortFunc(a, b) {
         const anl = a.name.toLowerCase();

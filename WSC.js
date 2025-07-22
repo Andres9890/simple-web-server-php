@@ -19,7 +19,7 @@ WSC.HTTPRESPONSES = mime.HTTPRESPONSES;
 WSC.DirectoryEntryHandler = require('./WSC/handlers.js');
 
 const main_fs = new WSC.FileSystem(__dirname)
-WSC.template_data = global.fs.readFileSync(global.path.resolve(__dirname, "directory-listing-template.html"), "utf8");
-WSC.static_template_data = global.fs.readFileSync(global.path.resolve(__dirname, "directory-listing-template-static.html"), "utf8");
+WSC.template_data = global.fs.readFileSync(global.path.resolve(__dirname, "directory-listing-template.php"), "utf8");
+WSC.static_template_data = global.fs.readFileSync(global.path.resolve(__dirname, "directory-listing-template-static.php"), "utf8");
 
 module.exports = WSC;

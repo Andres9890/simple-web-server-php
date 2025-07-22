@@ -214,7 +214,7 @@
 
                 <div class="input_option">
                     <div class="label">{lang.option_rewriteTo} <a href="#" class="help_icon" aria-label="{lang.help}" onclick="helpInfo(event, 'rewriteTo', 'option')"><i class="material-icons" aria-hidden="true">help_outline</i></a></div>
-                    <input type="text" id="rewriteTo" placeholder="/index.html" aria-label="{lang.option_rewriteTo}">
+                    <input type="text" id="rewriteTo" placeholder="/index.php" aria-label="{lang.option_rewriteTo}">
                 </div>
 
                 <div tabindex="0" class="checkbox_option" id="directoryListing" onclick="toggleCheckbox(this)" role="checkbox" aria-label="{lang.option_directoryListing}">
@@ -253,6 +253,11 @@
                 <div class="input_option">
                     <div class="label">{lang.option_cacheControl} <a href="#" class="help_icon" aria-label="{lang.help}" onclick="helpInfo(event, 'cacheControl', 'option')"><i class="material-icons" aria-hidden="true">help_outline</i></a></div>
                     <input type="text" id="cacheControl" placeholder="" aria-label="{lang.option_cacheControl}">
+                </div>
+
+                <div class="input_option">
+                    <div class="label">{lang.option_phpPath}</div>
+                    <input type="text" id="phpPath" placeholder="php" aria-label="{lang.option_phpPath}">
                 </div>
 
                 <div tabindex="0" class="checkbox_option" id="cors" onclick="toggleCheckbox(this)" role="checkbox" aria-label="{lang.option_cors}">
@@ -332,17 +337,17 @@
 
                 <div class="input_option">
                     <div class="label">{lang.option_custom404} <a href="#" class="help_icon" aria-label="{lang.help}" onclick="helpInfo(event, 'custom404', 'option')"><i class="material-icons" aria-hidden="true">help_outline</i></a></div>
-                    <input type="text" id="custom404" placeholder="/404.html" aria-label="{lang.option_custom404}">
+                    <input type="text" id="custom404" placeholder="/404.php" aria-label="{lang.option_custom404}">
                 </div>
 
                 <div class="input_option">
                     <div class="label">{lang.option_custom403} <a href="#" class="help_icon" aria-label="{lang.help}" onclick="helpInfo(event, 'custom403', 'option')"><i class="material-icons" aria-hidden="true">help_outline</i></a></div>
-                    <input type="text" id="custom403" placeholder="/403.html" aria-label="{lang.option_custom403}">
+                    <input type="text" id="custom403" placeholder="/403.php" aria-label="{lang.option_custom403}">
                 </div>
 
                 <div class="input_option">
                     <div class="label">{lang.option_custom401} <a href="#" class="help_icon" aria-label="{lang.help}" onclick="helpInfo(event, 'custom401', 'option')"><i class="material-icons" aria-hidden="true">help_outline</i></a></div>
-                    <input type="text" id="custom401" placeholder="/401.html" aria-label="{lang.option_custom401}">
+                    <input type="text" id="custom401" placeholder="/401.php" aria-label="{lang.option_custom401}">
                 </div>
 
                 <div class="input_option">

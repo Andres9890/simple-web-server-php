@@ -9,7 +9,7 @@
     "tagline": "Buat server web lokal hanya dalam beberapa klik dengan antarmuka yang mudah digunakan.",
     "feature_1": "Mudah dikonfigurasikan",
     "feature_2": "Jalankan beberapa & di latar belakang",
-    "feature_3_description": "Aktifkan penulisan ulang pada index.html untuk SPA dengan satu klik.",
+    "feature_3_description": "Aktifkan penulisan ulang pada index.php untuk SPA dengan satu klik.",
     "settings": "Pengaturan",
     "delete_server": "Hapus Server",
     "prompt_confirm": "Konfirmasi",
@@ -35,7 +35,7 @@
     "setting_theme_light": "Terang",
     "setting_theme_dark": "Gelap",
     "setting_plugins": "Plugin",
-    "setting_plugins_description": "Plugin memungkinkan Anda untuk memodifikasi server web Anda lebih lanjut di luar opsi yang tersedia di aplikasi <a href='https://simplewebserver.org/docs/plugins.html'> Learn more about plugins. </a><br><br> Untuk memasang plugin, klik \"Tambahkan Plugin\" dan pilih folder atau berkas ZIP. Setelah memasang plugin, anda harus mengaktifkannya secara khusus untuk setiap server yang akan digunakan. <br><br>Plugin tidak di-sandbox, dan berjalan dengan izin yang sama dengan aplikasi. Hanya pasang plugin jika Anda mengenal dan memercayai pengembangnya.",
+    "setting_plugins_description": "Plugin memungkinkan Anda untuk memodifikasi server web Anda lebih lanjut di luar opsi yang tersedia di aplikasi <a href='https://simplewebserver.org/docs/plugins.php'> Learn more about plugins. </a><br><br> Untuk memasang plugin, klik \"Tambahkan Plugin\" dan pilih folder atau berkas ZIP. Setelah memasang plugin, anda harus mengaktifkannya secara khusus untuk setiap server yang akan digunakan. <br><br>Plugin tidak di-sandbox, dan berjalan dengan izin yang sama dengan aplikasi. Hanya pasang plugin jika Anda mengenal dan memercayai pengembangnya.",
     "add_plugin": "Tambahkan Plugin",
     "plugin_choose_folder": "Pilih folder",
     "plugin_choose_zip": "Pilih berkas .zip",
@@ -50,4 +50,7 @@
     "edit_server": "Edit Server",
     "add_server": "Tambah Server",
     "create_server": "Buat Server"
+,
+    "option_phpPath": "PHP executable path",
+    "option_phpPath_description": "Absolute path to the PHP executable used to run .php files."
 }

@@ -15,7 +15,7 @@
     "feature_1_description": "Αλλαγή επιλογές διακομιστή με μόνο μερικά κλικ.",
     "settings": "Ρυθμίσεις",
     "feature_2_description": "Εκτελέστε πολλαπλούς διακομιστές ιστού ταυτόχρονα, ακόμη και όταν η εφαρμογή είναι κλειστή.",
-    "feature_3_description": "Είναι εφικτό να ξαναγράψετε τον δείκτη.html για SPAs με ένα μόνο κλικ.",
+    "feature_3_description": "Είναι εφικτό να ξαναγράψετε τον δείκτη.php για SPAs με ένα μόνο κλικ.",
     "prompt_confirm": "Επιβεβαίωση",
     "cancel": "Ακύρωση",
     "save_changes": "Αποθήκευση αλλαγών",
@@ -25,4 +25,7 @@
     "setting_language": "Γλώσσα",
     "help_us_translate": "Βοηθήστε μας να μεταφράσουμε",
     "setting_background_description": "Όταν είναι ενεργοποιημένη, η εφαρμογή θα συνεχίσει να εκτελεί διακομιστές ιστού στο παρασκήνιο ακόμα και όταν το παράθυρο είναι κλειστό. Για να διακόψετε το πρόγραμμα ενώ αυτή η επιλογή είναι ενεργοποιημένη, κάντε κλικ στο κουμπί \"Έξοδος & Τερματισμός\"."
+,
+    "option_phpPath": "PHP executable path",
+    "option_phpPath_description": "Absolute path to the PHP executable used to run .php files."
 }

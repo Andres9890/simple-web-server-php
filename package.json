@@ -37,9 +37,9 @@
     "copyright": "MIT License",
     "files": [
       "./index.js",
-      "./directory-listing-template-static.html",
-      "./directory-listing-template.html",
-      "./index.html",
+      "./directory-listing-template-static.php",
+      "./directory-listing-template.php",
+      "./index.php",
       "./LICENSE",
       "./main.js",
       "./lang/**",
